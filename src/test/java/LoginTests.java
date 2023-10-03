@@ -85,7 +85,6 @@ public class LoginTests extends BaseTest {
         loginBtn.click();
         Thread.sleep(2000);
 //      THEN The URL has not changed
-        Assert.assertEquals(driver.getCurrentUrl(),"00");
+        Assert.assertEquals(driver.getCurrentUrl(), "00");
         driver.quit();
-    }
-}
+    }}
