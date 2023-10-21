@@ -15,6 +15,10 @@ import java.util.UUID;
 public class BaseTest {
     public WebDriver driver = null;
     public String url = "https://qa.koel.app/";
+    String getRandomString(){
+      UUID uuid = UUID.randomUUID();
+      return uuid.toString();
+    }
     @BeforeSuite
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
@@ -73,5 +77,19 @@ public class BaseTest {
     public void isAvatarDisplayed() {
         WebElement avatarIcon = driver.findElement(By.cssSelector("img[class='avatar']"));
         Assert.assertTrue(avatarIcon.isDisplayed());
+    }
+
+    protected void loginWithCorrectCredentials() {
+        navigateToPage();
+        provideEmail("invalid@class.com");
+        providePassword("te$t$tudent");
+        clickSubmit();
+    }
+
+    public void enterText(By inputLocator, String inputText) {
+        WebElement clickAllSongs = driver.findElement(inputLocator);
+        clickAllSongs.click();
+        clickAllSongs.clear();
+        clickAllSongs.sendKeys(inputText);
     }
 }

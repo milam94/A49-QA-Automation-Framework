@@ -7,6 +7,7 @@
         <classes>
             <class name="LoginTests"/>
             <class name="ProfileTests"/>
+            <class name="HW17"/>
         </classes>
     </test>
 </suite>
